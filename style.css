@@ -34,7 +34,6 @@
 }
 
 
-
 /* ==========================================================
    RESET
 ========================================================== */
@@ -53,7 +52,6 @@
 }
 
 
-
 html,
 body{
 
@@ -62,7 +60,6 @@ body{
   min-height:100%;
 
 }
-
 
 
 body{
@@ -97,7 +94,6 @@ body{
 }
 
 
-
 /* ==========================================================
    HIDDEN
 ========================================================== */
@@ -107,7 +103,6 @@ body{
   display:none !important;
 
 }
-
 
 
 /* ==========================================================
@@ -137,21 +132,20 @@ body{
 }
 
 
-
 /* ==========================================================
    OPACITY-CONTROLLED GLASS
 
-   CRITICAL:
+   IMPORTANT:
 
-   The actual card has NO opacity applied to it.
+   Opacity is NOT applied to the actual card.
 
-   Only ::before fades.
+   Only ::before changes opacity.
 
    Therefore:
-   - Text stays 100%
-   - Buttons stay 100%
-   - Notices stay 100%
-   - Controls stay 100%
+   - text remains readable
+   - controls remain readable
+   - buttons remain readable
+   - the independent warning remains fully visible
 ========================================================== */
 
 .opacity-card{
@@ -163,7 +157,6 @@ body{
   background:transparent;
 
 }
-
 
 
 .opacity-card::before{
@@ -180,23 +173,12 @@ body{
 
   pointer-events:none;
 
-
-  /*
-    Glass itself is fully colored.
-
-    Its entire rendered output is then faded using
-    --card-opacity.
-
-    This makes background + blur + shadow fade together.
-  */
-
   background:
     rgb(
       255,
       255,
       255
     );
-
 
   -webkit-backdrop-filter:
     blur(28px)
@@ -205,7 +187,6 @@ body{
   backdrop-filter:
     blur(28px)
     saturate(180%);
-
 
   box-shadow:
     0 18px 60px
@@ -216,21 +197,14 @@ body{
       0.14
     );
 
-
   opacity:
     var(--card-opacity);
-
 
   transition:
     opacity 0.06s linear;
 
 }
 
-
-
-/*
-  Keep ALL card contents above the glass.
-*/
 
 .opacity-card > *{
 
@@ -240,11 +214,6 @@ body{
 
 }
 
-
-
-/*
-  Dark-mode glass.
-*/
 
 .dark .opacity-card::before{
 
@@ -258,16 +227,12 @@ body{
 }
 
 
-
 /*
-  TRUE ZERO.
+  TRUE ZERO
 
   No background.
   No blur.
   No shadow.
-  No invisible rectangle.
-
-  ::before literally does not render.
 */
 
 .opacity-card.glass-off::before{
@@ -275,7 +240,6 @@ body{
   display:none;
 
 }
-
 
 
 /* ==========================================================
@@ -303,13 +267,11 @@ body{
 }
 
 
-
 .dark .card{
 
   color:#f5f5f7;
 
 }
-
 
 
 /* ==========================================================
@@ -329,7 +291,6 @@ body{
 }
 
 
-
 .supported-version{
 
   margin-top:-4px;
@@ -343,13 +304,11 @@ body{
 }
 
 
-
 .dark .supported-version{
 
   color:#aeaeb2;
 
 }
-
 
 
 .skylark-version{
@@ -365,13 +324,11 @@ body{
 }
 
 
-
 .dark .skylark-version{
 
   color:#8e8e93;
 
 }
-
 
 
 /* ==========================================================
@@ -413,7 +370,6 @@ body{
 }
 
 
-
 .main-btn:active:not(:disabled){
 
   transform:scale(0.975);
@@ -421,7 +377,6 @@ body{
   filter:brightness(0.92);
 
 }
-
 
 
 .main-btn.unsupported,
@@ -436,7 +391,6 @@ body{
   opacity:1;
 
 }
-
 
 
 /* ==========================================================
@@ -454,13 +408,11 @@ body{
 }
 
 
-
 .dark .find-edition{
 
   color:#aeaeb2;
 
 }
-
 
 
 .find-edition a{
@@ -472,7 +424,6 @@ body{
   text-decoration:none;
 
 }
-
 
 
 /* ==========================================================
@@ -489,7 +440,6 @@ body{
   gap:10px;
 
 }
-
 
 
 .sub-buttons button{
@@ -521,7 +471,6 @@ body{
 }
 
 
-
 .sub-buttons button:active{
 
   background:
@@ -530,12 +479,6 @@ body{
 }
 
 
-
-/*
-  Requirements gets its own full-width row
-  so the three controls never feel cramped.
-*/
-
 .sub-buttons
 .requirements-button{
 
@@ -543,7 +486,6 @@ body{
     1 / -1;
 
 }
-
 
 
 .dark
@@ -558,7 +500,6 @@ body{
     );
 
 }
-
 
 
 /* ==========================================================
@@ -584,13 +525,11 @@ body{
 }
 
 
-
 .edition-social-link:active{
 
   opacity:0.6;
 
 }
-
 
 
 /* ==========================================================
@@ -618,7 +557,6 @@ body{
 }
 
 
-
 .credits a{
 
   color:inherit;
@@ -628,13 +566,11 @@ body{
 }
 
 
-
 .dark .credits{
 
   color:#8e8e93;
 
 }
-
 
 
 /* ==========================================================
@@ -658,7 +594,6 @@ body{
 }
 
 
-
 .notice strong{
 
   display:block;
@@ -666,7 +601,6 @@ body{
   margin-bottom:3px;
 
 }
-
 
 
 .beta-notice{
@@ -684,7 +618,6 @@ body{
 }
 
 
-
 .dark .beta-notice{
 
   background:
@@ -698,7 +631,6 @@ body{
   color:#ffd7a3;
 
 }
-
 
 
 .alert-notice{
@@ -716,13 +648,11 @@ body{
 }
 
 
-
 .dark .alert-notice{
 
   color:#b9dcff;
 
 }
-
 
 
 .eol-notice{
@@ -739,6 +669,35 @@ body{
 
 }
 
+
+.mac-notice{
+
+  background:
+    rgba(
+      88,
+      86,
+      214,
+      0.12
+    );
+
+  color:#403da1;
+
+}
+
+
+.dark .mac-notice{
+
+  background:
+    rgba(
+      94,
+      92,
+      230,
+      0.20
+    );
+
+  color:#d4d3ff;
+
+}
 
 
 /* ==========================================================
@@ -788,11 +747,29 @@ body{
 }
 
 
+/*
+  SETTINGS IS DIFFERENT.
+
+  There is deliberately no dark overlay behind it.
+
+  openSettings() hides #mainContent completely, leaving:
+
+  selected wallpaper
+  +
+  Settings
+
+  Nothing from the main menu remains behind it.
+*/
+
+.settings-overlay{
+
+  background:transparent;
+
+}
+
 
 /* ==========================================================
    SETTINGS CARD
-
-   Glass supplied by .opacity-card::before.
 ========================================================== */
 
 .settings-card{
@@ -805,6 +782,9 @@ body{
     );
 
   overflow-y:auto;
+
+  -webkit-overflow-scrolling:
+    touch;
 
   padding:24px;
 
@@ -821,13 +801,11 @@ body{
 }
 
 
-
 .dark .settings-card{
 
   color:#f5f5f7;
 
 }
-
 
 
 .settings-card h2{
@@ -839,11 +817,10 @@ body{
 }
 
 
-
 /* ==========================================================
    WHAT'S NEW CARD
 
-   DOES NOT use --card-opacity.
+   UNAFFECTED BY UI OPACITY.
 ========================================================== */
 
 .whats-new-card{
@@ -897,7 +874,6 @@ body{
 }
 
 
-
 .dark .whats-new-card{
 
   background:
@@ -913,7 +889,6 @@ body{
 }
 
 
-
 .whats-new-card h2{
 
   text-align:center;
@@ -925,9 +900,8 @@ body{
 }
 
 
-
 /* ==========================================================
-   SIMPLE CHANGELOG
+   CHANGELOG
 ========================================================== */
 
 #changelogContent{
@@ -943,7 +917,6 @@ body{
 }
 
 
-
 #changelogContent h3{
 
   font-size:19px;
@@ -951,7 +924,6 @@ body{
   line-height:1.25;
 
 }
-
 
 
 .release-date{
@@ -965,13 +937,11 @@ body{
 }
 
 
-
 .dark .release-date{
 
   color:#aeaeb2;
 
 }
-
 
 
 #changelogContent h4{
@@ -981,7 +951,6 @@ body{
   font-size:16px;
 
 }
-
 
 
 #changelogContent ul{
@@ -997,7 +966,6 @@ body{
 }
 
 
-
 #changelogContent li{
 
   padding-left:2px;
@@ -1011,7 +979,6 @@ body{
 }
 
 
-
 .dark #changelogContent li{
 
   color:#d1d1d6;
@@ -1019,11 +986,10 @@ body{
 }
 
 
-
 /* ==========================================================
-   REQUIREMENTS CARD
+   REQUIREMENTS
 
-   ABSOLUTELY UNAFFECTED BY UI OPACITY.
+   UNAFFECTED BY UI OPACITY.
 ========================================================== */
 
 .requirements-card{
@@ -1077,7 +1043,6 @@ body{
 }
 
 
-
 .dark .requirements-card{
 
   background:
@@ -1093,7 +1058,6 @@ body{
 }
 
 
-
 .requirements-card h2{
 
   text-align:center;
@@ -1103,7 +1067,6 @@ body{
   letter-spacing:-0.5px;
 
 }
-
 
 
 .requirements-list{
@@ -1117,7 +1080,6 @@ body{
   gap:12px;
 
 }
-
 
 
 .requirements-list li{
@@ -1137,7 +1099,6 @@ body{
 }
 
 
-
 .dark
 .requirements-list li{
 
@@ -1152,7 +1113,6 @@ body{
 }
 
 
-
 .requirements-list strong{
 
   display:block;
@@ -1162,7 +1122,6 @@ body{
   font-size:15px;
 
 }
-
 
 
 .requirements-list p{
@@ -1176,14 +1135,12 @@ body{
 }
 
 
-
 .dark
 .requirements-list p{
 
   color:#c7c7cc;
 
 }
-
 
 
 .requirements-list a{
@@ -1195,7 +1152,6 @@ body{
   text-decoration:none;
 
 }
-
 
 
 /* ==========================================================
@@ -1213,6 +1169,46 @@ body{
 }
 
 
+.section-copy{
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:5px;
+
+}
+
+
+.section-copy h3{
+
+  font-size:16px;
+
+  line-height:1.25;
+
+}
+
+
+.section-copy p,
+.setting-description{
+
+  color:
+    var(--secondary-text);
+
+  font-size:12px;
+
+  line-height:1.42;
+
+}
+
+
+.dark .section-copy p,
+.dark .setting-description{
+
+  color:#aeaeb2;
+
+}
+
 
 .setting-row{
 
@@ -1227,7 +1223,6 @@ body{
 }
 
 
-
 .divider{
 
   height:1px;
@@ -1236,7 +1231,6 @@ body{
     var(--separator);
 
 }
-
 
 
 /* ==========================================================
@@ -1258,7 +1252,6 @@ body{
 }
 
 
-
 .switch input{
 
   position:absolute;
@@ -1276,7 +1269,6 @@ body{
 }
 
 
-
 .toggle-slider{
 
   position:absolute;
@@ -1292,7 +1284,6 @@ body{
   pointer-events:none;
 
 }
-
 
 
 .toggle-slider::before{
@@ -1327,14 +1318,12 @@ body{
 }
 
 
-
 .switch input:checked +
 .toggle-slider{
 
   background:#34c759;
 
 }
-
 
 
 .switch input:checked +
@@ -1346,9 +1335,12 @@ body{
 }
 
 
-
 /* ==========================================================
    BACKGROUND GRID
+
+   ORIGINAL COMPACT TEXT BUTTONS.
+
+   NO THUMBNAIL CSS.
 ========================================================== */
 
 .theme-grid{
@@ -1364,7 +1356,6 @@ body{
   gap:10px;
 
 }
-
 
 
 .theme-grid button{
@@ -1401,7 +1392,6 @@ body{
 }
 
 
-
 .theme-grid
 button:active:not(:disabled){
 
@@ -1409,7 +1399,6 @@ button:active:not(:disabled){
     scale(0.97);
 
 }
-
 
 
 .theme-grid
@@ -1432,7 +1421,6 @@ button.selected{
 }
 
 
-
 .theme-grid
 button:disabled{
 
@@ -1441,7 +1429,6 @@ button:disabled{
   opacity:0.38;
 
 }
-
 
 
 .dark
@@ -1456,7 +1443,6 @@ button:disabled{
     );
 
 }
-
 
 
 /* ==========================================================
@@ -1490,7 +1476,6 @@ button:disabled{
 }
 
 
-
 .settings-button,
 .close-button,
 .primary-button{
@@ -1503,7 +1488,6 @@ button:disabled{
 }
 
 
-
 .secondary-button,
 #pasteButton{
 
@@ -1514,7 +1498,6 @@ button:disabled{
     var(--accent);
 
 }
-
 
 
 /* ==========================================================
@@ -1553,7 +1536,6 @@ button:disabled{
 }
 
 
-
 .file-btn input{
 
   position:absolute;
@@ -1571,7 +1553,6 @@ button:disabled{
 }
 
 
-
 /* ==========================================================
    OPACITY HEADER
 ========================================================== */
@@ -1584,28 +1565,65 @@ button:disabled{
 
   align-items:center;
 
+  gap:12px;
+
 }
 
 
+.opacity-value{
 
-.opacity-header strong{
+  appearance:none;
+
+  -webkit-appearance:none;
+
+  border:none;
+
+  padding:5px 9px;
+
+  border-radius:9px;
+
+  background:
+    rgba(
+      0,
+      122,
+      255,
+      0.10
+    );
 
   color:
     var(--accent);
 
+  font:inherit;
+
+  font-size:14px;
+
+  font-weight:700;
+
+  cursor:pointer;
+
 }
 
+
+.opacity-value:active{
+
+  background:
+    rgba(
+      0,
+      122,
+      255,
+      0.18
+    );
+
+}
 
 
 /* ==========================================================
    OPACITY SLIDER
 
-   Large interaction area for fingers.
+   0–100
+   STEP 1
 
-   Visible track stays slim.
-
-   We intentionally preserve the native horizontal
-   range behavior rather than suppressing touch gestures.
+   Large touch target with slim Apple-like visual track.
 ========================================================== */
 
 .range-wrap{
@@ -1614,14 +1632,13 @@ button:disabled{
 
   width:100%;
 
-  min-height:58px;
+  min-height:50px;
 
   display:flex;
 
   align-items:center;
 
 }
-
 
 
 #opacitySlider{
@@ -1634,7 +1651,7 @@ button:disabled{
 
   width:100%;
 
-  height:58px;
+  height:50px;
 
   margin:0;
 
@@ -1649,15 +1666,14 @@ button:disabled{
 }
 
 
-
-/* WEBKIT / SAFARI / CHROME */
+/* WEBKIT / SAFARI */
 
 #opacitySlider
 ::-webkit-slider-runnable-track{
 
   width:100%;
 
-  height:8px;
+  height:5px;
 
   border-radius:999px;
 
@@ -1687,7 +1703,6 @@ button:disabled{
 }
 
 
-
 #opacitySlider
 ::-webkit-slider-thumb{
 
@@ -1695,37 +1710,35 @@ button:disabled{
 
   -webkit-appearance:none;
 
-  width:30px;
+  width:28px;
 
-  height:30px;
+  height:28px;
 
-  margin-top:-11px;
+  margin-top:-11.5px;
 
-  border:
-    2px solid
-    rgba(
-      255,
-      255,
-      255,
-      0.92
-    );
+  border:none;
 
   border-radius:50%;
 
-  background:
-    var(--accent);
+  background:#fff;
 
   box-shadow:
-    0 2px 8px
+    0 1px 4px
     rgba(
       0,
       0,
       0,
-      0.28
+      0.24
+    ),
+    0 0 0 0.5px
+    rgba(
+      0,
+      0,
+      0,
+      0.10
     );
 
 }
-
 
 
 /* FIREFOX */
@@ -1735,7 +1748,7 @@ button:disabled{
 
   width:100%;
 
-  height:8px;
+  height:5px;
 
   border-radius:999px;
 
@@ -1750,11 +1763,10 @@ button:disabled{
 }
 
 
-
 #opacitySlider
 ::-moz-range-progress{
 
-  height:8px;
+  height:5px;
 
   border-radius:999px;
 
@@ -1764,69 +1776,105 @@ button:disabled{
 }
 
 
-
 #opacitySlider
 ::-moz-range-thumb{
 
-  width:30px;
+  width:28px;
 
-  height:30px;
+  height:28px;
 
-  border:
-    2px solid
-    rgba(
-      255,
-      255,
-      255,
-      0.92
-    );
+  border:none;
 
   border-radius:50%;
 
-  background:
-    var(--accent);
+  background:#fff;
 
   box-shadow:
-    0 2px 8px
+    0 1px 4px
     rgba(
       0,
       0,
       0,
-      0.28
+      0.24
     );
 
 }
 
 
-
 /* ==========================================================
-   WARNING
+   LOW-OPACITY WARNING
+
+   CRITICAL:
+
+   This warning does NOT use --card-opacity.
+
+   It has its own fully rendered background and text.
+
+   Even if UI Opacity = 0%, this warning remains completely
+   visible.
 ========================================================== */
 
-.warning{
+.warning,
+.independent-warning{
+
+  position:relative;
+
+  z-index:10;
+
+  opacity:1 !important;
+
+  filter:none !important;
+
+  backdrop-filter:none !important;
+
+  -webkit-backdrop-filter:none !important;
 
   padding:9px 11px;
 
   border-radius:11px;
 
   background:
-    rgba(
+    rgb(
       255,
-      149,
-      0,
-      0.13
+      241,
+      219
     );
 
-  color:#9a5600;
+  color:#8a4b00;
 
   font-size:12px;
+
+  line-height:1.4;
+
+  box-shadow:
+    0 1px 3px
+    rgba(
+      0,
+      0,
+      0,
+      0.05
+    );
 
 }
 
 
+.dark .warning,
+.dark .independent-warning{
+
+  background:
+    rgb(
+      72,
+      49,
+      19
+    );
+
+  color:#ffd7a3;
+
+}
+
 
 /* ==========================================================
-   URL POPUP
+   POPUP
 
    UNAFFECTED BY UI OPACITY.
 ========================================================== */
@@ -1871,7 +1919,6 @@ button:disabled{
 }
 
 
-
 .dark .popup-card{
 
   background:
@@ -1887,7 +1934,6 @@ button:disabled{
 }
 
 
-
 .popup-card h3{
 
   text-align:center;
@@ -1895,7 +1941,6 @@ button:disabled{
   font-size:21px;
 
 }
-
 
 
 .popup-description{
@@ -1910,7 +1955,6 @@ button:disabled{
 }
 
 
-
 .url-input-row{
 
   display:flex;
@@ -1918,7 +1962,6 @@ button:disabled{
   gap:8px;
 
 }
-
 
 
 .url-input-row input{
@@ -1953,7 +1996,6 @@ button:disabled{
 }
 
 
-
 .url-input-row input:focus{
 
   box-shadow:
@@ -1961,7 +2003,6 @@ button:disabled{
     var(--accent);
 
 }
-
 
 
 .url-error{
@@ -1972,7 +2013,6 @@ button:disabled{
   font-size:12px;
 
 }
-
 
 
 .popup-actions{
@@ -1990,14 +2030,76 @@ button:disabled{
 }
 
 
+/* ==========================================================
+   EXACT OPACITY INPUT
+========================================================== */
+
+.exact-opacity-row{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:8px;
+
+}
+
+
+.exact-opacity-row input{
+
+  flex:1;
+
+  min-width:0;
+
+  height:44px;
+
+  padding:
+    0 12px;
+
+  border:none;
+
+  border-radius:12px;
+
+  background:
+    rgba(
+      118,
+      118,
+      128,
+      0.12
+    );
+
+  color:inherit;
+
+  font-size:16px;
+
+  font-weight:600;
+
+  outline:none;
+
+}
+
+
+.exact-opacity-row input:focus{
+
+  box-shadow:
+    0 0 0 2px
+    var(--accent);
+
+}
+
+
+.exact-opacity-row span{
+
+  color:
+    var(--secondary-text);
+
+  font-weight:650;
+
+}
+
 
 /* ==========================================================
    HARD BLOCK
-
-   No Find Edition.
-   No Settings.
-   No changelog.
-   No Get Skylark.
 ========================================================== */
 
 .hard-block{
@@ -2037,13 +2139,11 @@ button:disabled{
 }
 
 
-
 .dark .hard-block{
 
   background:#000;
 
 }
-
 
 
 .hard-block-card{
@@ -2055,7 +2155,6 @@ button:disabled{
 }
 
 
-
 .hard-block-card h1{
 
   margin-bottom:10px;
@@ -2065,7 +2164,6 @@ button:disabled{
   letter-spacing:-0.5px;
 
 }
-
 
 
 .hard-block-card p{
@@ -2080,7 +2178,6 @@ button:disabled{
 }
 
 
-
 .dark .hard-block-card{
 
   color:white;
@@ -2088,13 +2185,11 @@ button:disabled{
 }
 
 
-
 .dark .hard-block-card p{
 
   color:#aeaeb2;
 
 }
-
 
 
 /* ==========================================================
@@ -2159,7 +2254,6 @@ button:disabled{
 }
 
 
-
 #toast.show{
 
   opacity:1;
@@ -2171,7 +2265,6 @@ button:disabled{
     );
 
 }
-
 
 
 /* ==========================================================
