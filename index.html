@@ -54,18 +54,12 @@
       Skylark (Edition 27)
     </h1>
 
-
-    <!-- PLATFORM / SUPPORTED VERSION -->
-
     <p
       id="supportedVersion"
       class="supported-version"
     >
       Loading compatibility…
     </p>
-
-
-    <!-- SKYLARK VERSION -->
 
     <p
       id="skylarkVersion"
@@ -74,8 +68,6 @@
       Loading version…
     </p>
 
-
-    <!-- MAC NOTICE -->
 
     <div
       id="macNotice"
@@ -95,8 +87,6 @@
     </div>
 
 
-    <!-- BETA -->
-
     <div
       id="betaNotice"
       class="notice beta-notice"
@@ -115,8 +105,6 @@
     </div>
 
 
-    <!-- ALERT -->
-
     <div
       id="editionAlert"
       class="notice alert-notice"
@@ -131,8 +119,6 @@
 
     </div>
 
-
-    <!-- EOL -->
 
     <div
       id="eolNotice"
@@ -151,8 +137,6 @@
     </div>
 
 
-    <!-- GET SKYLARK -->
-
     <button
       class="main-btn"
       id="mainBtn"
@@ -162,8 +146,6 @@
       Loading…
     </button>
 
-
-    <!-- FIND EDITION -->
 
     <p
       class="find-edition"
@@ -183,8 +165,6 @@
 
     </p>
 
-
-    <!-- MAIN CONTROLS -->
 
     <div class="sub-buttons">
 
@@ -213,8 +193,6 @@
     </div>
 
 
-    <!-- EDITION SOCIAL -->
-
     <a
       id="editionSocialLink"
       class="edition-social-link"
@@ -225,8 +203,6 @@
       Follow @Skylrkedition7
     </a>
 
-
-    <!-- COPYRIGHT -->
 
     <div class="credits">
 
@@ -274,8 +250,6 @@
     </h2>
 
 
-    <!-- DARK MODE -->
-
     <div class="setting-row">
 
       <strong>
@@ -299,8 +273,6 @@
     <div class="divider"></div>
 
 
-    <!-- BACKGROUND -->
-
     <div class="settings-section">
 
       <div class="section-copy">
@@ -319,11 +291,6 @@
       </div>
 
 
-      <!--
-        NO THUMBNAILS.
-        Original compact text-button grid is preserved.
-      -->
-
       <div class="theme-grid">
 
         <button
@@ -334,7 +301,6 @@
           Default
         </button>
 
-
         <button
           type="button"
           data-background="Ella"
@@ -342,7 +308,6 @@
         >
           Ella
         </button>
-
 
         <button
           type="button"
@@ -352,7 +317,6 @@
           Glitter
         </button>
 
-
         <button
           type="button"
           data-background="Car Wash"
@@ -360,7 +324,6 @@
         >
           Car Wash
         </button>
-
 
         <button
           type="button"
@@ -370,7 +333,6 @@
         >
           おちゃ
         </button>
-
 
         <button
           type="button"
@@ -385,8 +347,6 @@
       </div>
 
 
-      <!-- YOUR PHOTOS -->
-
       <label class="file-btn">
 
         Your Photos
@@ -399,8 +359,6 @@
 
       </label>
 
-
-      <!-- IMAGE URL -->
 
       <button
         class="settings-button"
@@ -415,8 +373,6 @@
 
     <div class="divider"></div>
 
-
-    <!-- UI OPACITY -->
 
     <div class="settings-section">
 
@@ -460,19 +416,24 @@
 
 
       <!--
-        This warning is intentionally kept outside the
-        opacity-card visual layer by the independent-warning
-        CSS below.
+        This space always exists.
+
+        The warning changes visibility instead of being
+        inserted/removed from the layout. This prevents
+        the Settings UI from jumping around.
       -->
 
-      <p
-        id="opacityWarning"
-        class="warning independent-warning"
-        hidden
-      >
-        Lower UI opacity may make some text difficult to read
-        against certain backgrounds.
-      </p>
+      <div class="opacity-warning-slot">
+
+        <p
+          id="opacityWarning"
+          class="warning independent-warning"
+        >
+          Lower UI opacity may make some text difficult to read
+          against certain backgrounds.
+        </p>
+
+      </div>
 
     </div>
 
@@ -760,6 +721,9 @@
 
 /* ==========================================================
    EASY CHANGELOG
+
+   FOR FUTURE UPDATES:
+   ONLY EDIT THIS SECTION.
 ========================================================== */
 
 const CHANGELOG = {
@@ -810,26 +774,20 @@ const CHANGELOG = {
 const EDITION_NAME =
   "Edition 27";
 
-
 const EDITIONS_JSON =
   "https://skylark-inc.github.io/editions.json";
-
 
 const ERROR_URL =
   "https://skylark-inc.github.io/Error";
 
-
 const SITE_MIN_IOS_MAJOR =
   14;
-
 
 const SITE_MIN_IOS_MINOR =
   3;
 
-
 const EDITION_X_URL =
   "https://x.com/Skylrkedition7";
-
 
 const DEFAULT_BG =
   "https://media.idownloadblog.com/wp-content/uploads/2017/06/iOS-10-3-3-wallpaper-1-iPad-AR72014.jpg";
@@ -860,16 +818,9 @@ const THEMES = {
    GLOBAL DATA
 ========================================================== */
 
-let editionData =
-  null;
-
-
-let toastTimer =
-  null;
-
-
-let editionLoaded =
-  false;
+let editionData = null;
+let toastTimer = null;
+let editionLoaded = false;
 
 
 /* ==========================================================
@@ -879,122 +830,95 @@ let editionLoaded =
 const hardBlock =
   document.getElementById("hardBlock");
 
-
 const hardBlockTitle =
   document.getElementById("hardBlockTitle");
-
 
 const hardBlockMessage =
   document.getElementById("hardBlockMessage");
 
-
 const mainContent =
   document.getElementById("mainContent");
-
 
 const mainBtn =
   document.getElementById("mainBtn");
 
-
 const findEdition =
   document.getElementById("findEdition");
-
 
 const supportedVersion =
   document.getElementById("supportedVersion");
 
-
 const skylarkVersion =
   document.getElementById("skylarkVersion");
-
 
 const betaNotice =
   document.getElementById("betaNotice");
 
-
 const editionAlert =
   document.getElementById("editionAlert");
-
 
 const editionAlertText =
   document.getElementById("editionAlertText");
 
-
 const eolNotice =
   document.getElementById("eolNotice");
-
 
 const macNotice =
   document.getElementById("macNotice");
 
-
 const settingsPanel =
   document.getElementById("settingsPanel");
 
+const settingsCard =
+  document.getElementById("settingsCard");
 
 const whatsNewPanel =
   document.getElementById("whatsNewPanel");
 
-
 const requirementsPanel =
   document.getElementById("requirementsPanel");
-
 
 const urlPopup =
   document.getElementById("urlPopup");
 
-
 const opacityPopup =
   document.getElementById("opacityPopup");
-
 
 const urlInput =
   document.getElementById("urlInput");
 
-
 const urlError =
   document.getElementById("urlError");
-
 
 const fileInput =
   document.getElementById("fileInput");
 
-
 const darkToggle =
   document.getElementById("darkToggle");
-
 
 const opacitySlider =
   document.getElementById("opacitySlider");
 
-
 const opacityValue =
   document.getElementById("opacityValue");
-
 
 const opacityWarning =
   document.getElementById("opacityWarning");
 
-
 const opacityInput =
   document.getElementById("opacityInput");
-
 
 const opacityInputError =
   document.getElementById("opacityInputError");
 
-
 const changelogContent =
   document.getElementById("changelogContent");
-
 
 const uploadedImageButton =
   document.getElementById("uploadedImageButton");
 
-
 const ochaThemeButton =
   document.getElementById("ochaThemeButton");
-
 
 const editionSocialLink =
   document.getElementById("editionSocialLink");
@@ -1013,23 +937,17 @@ function showToast(message){
   const toast =
     document.getElementById("toast");
 
-
   toast.textContent =
     message;
 
-
   toast.classList.add("show");
 
-
   clearTimeout(toastTimer);
-
 
   toastTimer =
     setTimeout(
       () => {
-
         toast.classList.remove("show");
-
       },
       2600
     );
@@ -1046,48 +964,28 @@ function getDeviceType(){
   const ua =
     navigator.userAgent || "";
 
-
   const platform =
     navigator.platform || "";
-
 
   const touchPoints =
     navigator.maxTouchPoints || 0;
 
 
-  /*
-    NORMAL iPHONE
-  */
-
   if(
     /\(iPhone;\s*CPU\s+iPhone\s+OS/i.test(ua) ||
     /iPhone|iPod/i.test(ua)
   ){
-
     return "iphone";
-
   }
 
-
-  /*
-    NORMAL iPAD
-  */
 
   if(
     /\(iPad;\s*CPU\s+OS/i.test(ua) ||
     /iPad/i.test(ua)
   ){
-
     return "ipad";
-
   }
 
-
-  /*
-    DESKTOP-STYLE iPAD
-
-    Some iPads identify as Macintosh.
-  */
 
   const isDesktopStyleIPad =
     touchPoints > 1 &&
@@ -1099,24 +997,16 @@ function getDeviceType(){
 
 
   if(isDesktopStyleIPad){
-
     return "ipad";
-
   }
 
-
-  /*
-    GENUINE MAC
-  */
 
   if(
     platform === "MacIntel" ||
     platform.startsWith("Mac") ||
     /Macintosh/i.test(ua)
   ){
-
     return "mac";
-
   }
 
 
@@ -1127,11 +1017,6 @@ function getDeviceType(){
 
 /* ==========================================================
    OS VERSION
-
-   Uses Safari Version/X.X.X.
-
-   Mobile/ is deliberately NOT required because desktop-style
-   iPads may omit it.
 ========================================================== */
 
 function getIOSVersion(){
@@ -1149,7 +1034,6 @@ function getIOSVersion(){
   if(versionMatch){
 
     return {
-
       major:
         parseInt(versionMatch[1] || "0",10),
 
@@ -1158,15 +1042,10 @@ function getIOSVersion(){
 
       patch:
         parseInt(versionMatch[3] || "0",10)
-
     };
 
   }
 
-
-  /*
-    Fallback for Apple mobile identifiers.
-  */
 
   const osMatch =
     ua.match(
@@ -1177,7 +1056,6 @@ function getIOSVersion(){
   if(osMatch){
 
     return {
-
       major:
         parseInt(osMatch[1] || "0",10),
 
@@ -1186,7 +1064,6 @@ function getIOSVersion(){
 
       patch:
         parseInt(osMatch[3] || "0",10)
-
     };
 
   }
@@ -1208,9 +1085,7 @@ function parseVersionString(value){
     value === undefined ||
     value === ""
   ){
-
     return null;
-
   }
 
 
@@ -1224,16 +1099,9 @@ function parseVersionString(value){
 
 
   return {
-
-    major:
-      parts[0] || 0,
-
-    minor:
-      parts[1] || 0,
-
-    patch:
-      parts[2] || 0
-
+    major:parts[0] || 0,
+    minor:parts[1] || 0,
+    patch:parts[2] || 0
   };
 
 }
@@ -1254,7 +1122,6 @@ function compareVersions(a,b){
     if(a[key] < b[key]){
       return -1;
     }
-
 
     if(a[key] > b[key]){
       return 1;
@@ -1281,36 +1148,21 @@ function getSiteAccess(){
   if(device === "unsupported"){
 
     return {
-
       allowed:false,
-
       reason:"platform",
-
       device
-
     };
 
   }
 
 
-  /*
-    Genuine Macs remain available.
-
-    Safari Version/ on macOS is not treated as iOS.
-  */
-
   if(device === "mac"){
 
     return {
-
       allowed:true,
-
       reason:null,
-
       device:"mac",
-
       version:null
-
     };
 
   }
@@ -1323,29 +1175,18 @@ function getSiteAccess(){
   if(!version){
 
     return {
-
       allowed:false,
-
       reason:"unknown-version",
-
       device
-
     };
 
   }
 
 
   const minimum = {
-
-    major:
-      SITE_MIN_IOS_MAJOR,
-
-    minor:
-      SITE_MIN_IOS_MINOR,
-
-    patch:
-      0
-
+    major:SITE_MIN_IOS_MAJOR,
+    minor:SITE_MIN_IOS_MINOR,
+    patch:0
   };
 
 
@@ -1357,30 +1198,20 @@ function getSiteAccess(){
   ){
 
     return {
-
       allowed:false,
-
       reason:"old-version",
-
       device,
-
       version
-
     };
 
   }
 
 
   return {
-
     allowed:true,
-
     reason:null,
-
     device,
-
     version
-
   };
 
 }
@@ -1388,12 +1219,6 @@ function getSiteAccess(){
 
 /* ==========================================================
    RELEASE IDENTIFICATION
-
-   IMPORTANT:
-
-   This is the text UNDER the main heading.
-
-   It does NOT change the Get Skylark button text.
 ========================================================== */
 
 function updateReleaseIdentification(){
@@ -1458,13 +1283,6 @@ function isEditionSupported(){
   }
 
 
-  /*
-    A Mac remains allowed into the release page.
-
-    Safari's Version/ number on Mac is not an iOS version
-    and therefore isn't compared with iOS compatibility.
-  */
-
   if(access.device === "mac"){
     return true;
   }
@@ -1494,9 +1312,7 @@ function isEditionSupported(){
       minimum
     ) < 0
   ){
-
     return false;
-
   }
 
 
@@ -1507,9 +1323,7 @@ function isEditionSupported(){
       maximum
     ) > 0
   ){
-
     return false;
-
   }
 
 
@@ -1534,40 +1348,12 @@ function getDeviceDownloadLink(){
 
 
   if(device === "iphone"){
-
-    return (
-      editionData.link ||
-      null
-    );
-
+    return editionData.link || null;
   }
 
 
   if(device === "ipad"){
-
-    /*
-      NEVER fall back to editionData.link.
-    */
-
-    return (
-      editionData.iPadOSLink ||
-      null
-    );
-
-  }
-
-
-  /*
-    The current rules do not define a separate Mac download
-    field.
-
-    No new Mac download behavior is invented here.
-  */
-
-  if(device === "mac"){
-
-    return null;
-
+    return editionData.iPadOSLink || null;
   }
 
 
@@ -1591,17 +1377,13 @@ function applySiteGate(){
     hardBlock.hidden =
       true;
 
-
     mainContent.hidden =
       false;
-
 
     macNotice.hidden =
       access.device !== "mac";
 
-
     updateReleaseIdentification();
-
 
     return true;
 
@@ -1611,7 +1393,6 @@ function applySiteGate(){
   mainContent.hidden =
     true;
 
-
   hardBlock.hidden =
     false;
 
@@ -1620,7 +1401,6 @@ function applySiteGate(){
 
     hardBlockTitle.textContent =
       "Device not supported";
-
 
     hardBlockMessage.textContent =
       "Skylark requires a supported Apple device.";
@@ -1632,7 +1412,6 @@ function applySiteGate(){
     hardBlockTitle.textContent =
       "Device or Software version too old";
 
-
     hardBlockMessage.textContent =
       "Skylark requires iOS or iPadOS 14.3 or later.";
 
@@ -1642,7 +1421,6 @@ function applySiteGate(){
 
     hardBlockTitle.textContent =
       "Software version unavailable";
-
 
     hardBlockMessage.textContent =
       "Skylark could not determine your iOS or iPadOS version.";
@@ -1657,9 +1435,6 @@ function applySiteGate(){
 
 /* ==========================================================
    ERROR FALLBACK
-
-   If editions.json leaves the page loading for more than
-   30 seconds, forward to /Error.
 ========================================================== */
 
 const loadingTimeout =
@@ -1780,24 +1555,12 @@ function applyEditionData(){
     editionData.version || "";
 
 
-  /*
-    Keep platform identification under the title.
-  */
-
   updateReleaseIdentification();
 
-
-  /*
-    BETA
-  */
 
   betaNotice.hidden =
     editionData.beta !== true;
 
-
-  /*
-    ALERT
-  */
 
   if(
     editionData.alert === true &&
@@ -1806,7 +1569,6 @@ function applyEditionData(){
 
     editionAlertText.textContent =
       editionData.alertMessage;
-
 
     editionAlert.hidden =
       false;
@@ -1821,10 +1583,6 @@ function applyEditionData(){
   }
 
 
-  /*
-    EOL
-  */
-
   eolNotice.hidden =
     editionData.eol !== true;
 
@@ -1836,10 +1594,6 @@ function applyEditionData(){
 
 /* ==========================================================
    INSTALL BUTTON
-
-   AVAILABLE DOWNLOAD ALWAYS SAYS:
-
-   Get Skylark
 ========================================================== */
 
 function updateInstallButton(){
@@ -1854,47 +1608,35 @@ function updateInstallButton(){
     mainBtn.textContent =
       "Unavailable";
 
-
     mainBtn.disabled =
       true;
-
 
     mainBtn.classList.add(
       "unsupported"
     );
 
-
     findEdition.hidden =
       false;
-
 
     return;
 
   }
 
 
-  /*
-    EOL OVERRIDES NORMAL DOWNLOADS.
-  */
-
   if(editionData.eol === true){
 
     mainBtn.textContent =
       "End of Life";
 
-
     mainBtn.disabled =
       true;
-
 
     mainBtn.classList.add(
       "unsupported"
     );
 
-
     findEdition.hidden =
       true;
-
 
     return;
 
@@ -1906,19 +1648,15 @@ function updateInstallButton(){
     mainBtn.textContent =
       "Unsupported";
 
-
     mainBtn.disabled =
       true;
-
 
     mainBtn.classList.add(
       "unsupported"
     );
 
-
     findEdition.hidden =
       false;
-
 
     return;
 
@@ -1929,32 +1667,20 @@ function updateInstallButton(){
     getDeviceType();
 
 
-  /*
-    Genuine Mac:
-
-    Access remains available and the Mac notice is shown.
-
-    No undefined download mapping is invented.
-  */
-
   if(device === "mac"){
 
     mainBtn.textContent =
       "Get Skylark";
 
-
     mainBtn.disabled =
       true;
-
 
     mainBtn.classList.add(
       "unsupported"
     );
 
-
     findEdition.hidden =
       true;
-
 
     return;
 
@@ -1985,32 +1711,23 @@ function updateInstallButton(){
     mainBtn.disabled =
       true;
 
-
     mainBtn.classList.add(
       "unsupported"
     );
 
-
     findEdition.hidden =
       true;
-
 
     return;
 
   }
 
 
-  /*
-    THIS REMAINS THE ORIGINAL BUTTON TITLE.
-  */
-
   mainBtn.textContent =
     "Get Skylark";
 
-
   mainBtn.disabled =
     false;
-
 
   findEdition.hidden =
     true;
@@ -2030,9 +1747,7 @@ mainBtn.addEventListener(
       !editionData ||
       mainBtn.disabled
     ){
-
       return;
-
     }
 
 
@@ -2073,7 +1788,8 @@ mainBtn.addEventListener(
 /* ==========================================================
    CHANGELOG
 
-   PRESERVED.
+   THIS RENDERER SHOULD NOT NEED TO BE EDITED FOR FUTURE
+   CHANGELOG UPDATES.
 ========================================================== */
 
 function renderChangelog(){
@@ -2085,10 +1801,8 @@ function renderChangelog(){
   const releaseName =
     document.createElement("h3");
 
-
   releaseName.textContent =
     "Skylark (Edition 27)";
-
 
   changelogContent.appendChild(
     releaseName
@@ -2098,15 +1812,12 @@ function renderChangelog(){
   const date =
     document.createElement("p");
 
-
   date.className =
     "release-date";
-
 
   date.textContent =
     "Launched: " +
     CHANGELOG.releaseDate;
-
 
   changelogContent.appendChild(
     date
@@ -2116,10 +1827,8 @@ function renderChangelog(){
   const title =
     document.createElement("h4");
 
-
   title.textContent =
     "What’s New";
-
 
   changelogContent.appendChild(
     title
@@ -2137,9 +1846,27 @@ function renderChangelog(){
         document.createElement("li");
 
 
-      li.textContent =
-        item;
+      const itemTitle =
+        document.createElement("strong");
 
+      itemTitle.textContent =
+        item.title;
+
+
+      const description =
+        document.createElement("span");
+
+      description.textContent =
+        " — " + item.description;
+
+
+      li.appendChild(
+        itemTitle
+      );
+
+      li.appendChild(
+        description
+      );
 
       list.appendChild(
         li
@@ -2158,30 +1885,14 @@ function renderChangelog(){
 
 /* ==========================================================
    SETTINGS
-
-   CRITICAL:
-
-   Opening Settings hides the ENTIRE main menu.
-
-   The selected wallpaper stays visible.
-
-   Therefore the Settings view is:
-
-   WALLPAPER + SETTINGS
-
-   and NOT:
-
-   WALLPAPER + MAIN CARD + SETTINGS
 ========================================================== */
 
 function openSettings(){
 
   syncBackgroundButtons();
 
-
   mainContent.hidden =
     true;
-
 
   settingsPanel.style.display =
     "flex";
@@ -2193,7 +1904,6 @@ function closeSettings(){
 
   settingsPanel.style.display =
     "none";
-
 
   mainContent.hidden =
     false;
@@ -2329,10 +2039,6 @@ function updateBackgroundSelection(name){
 
 /* ==========================================================
    SHARED CUSTOM BACKGROUND
-
-   Photos + Image URL use ONE slot.
-
-   Most recent custom background replaces the previous one.
 ========================================================== */
 
 function getCustomBackground(){
@@ -2357,11 +2063,6 @@ function saveCustomBackground(value){
     "uploaded"
   );
 
-
-  /*
-    Remove obsolete split values only AFTER the unified
-    custom value has successfully been stored.
-  */
 
   localStorage.removeItem(
     "uploadedBackground"
@@ -2485,10 +2186,8 @@ fileInput.addEventListener(
         "Please choose an image"
       );
 
-
       fileInput.value =
         "";
-
 
       return;
 
@@ -2534,10 +2233,6 @@ fileInput.addEventListener(
             error
           );
 
-
-          /*
-            Still apply it for the current session.
-          */
 
           setBodyBackground(
             result
@@ -2673,8 +2368,6 @@ async function pasteURL(){
 
 /* ==========================================================
    APPLY IMAGE URL
-
-   SAME customBackground slot as Photos.
 ========================================================== */
 
 function applyURL(){
@@ -2786,9 +2479,6 @@ urlInput.addEventListener(
 
 /* ==========================================================
    RESTORE BACKGROUND
-
-   Also migrates the old uploadedBackground / urlBackground
-   system into the new shared customBackground slot.
 ========================================================== */
 
 function restoreBackground(){
@@ -2802,10 +2492,6 @@ function restoreBackground(){
   let custom =
     getCustomBackground();
 
-
-  /*
-    OLD PHOTO BACKGROUND
-  */
 
   if(
     !custom &&
@@ -2843,10 +2529,6 @@ function restoreBackground(){
   }
 
 
-  /*
-    OLD URL BACKGROUND
-  */
-
   if(
     !custom &&
     type === "url"
@@ -2883,10 +2565,6 @@ function restoreBackground(){
   }
 
 
-  /*
-    SHARED CUSTOM
-  */
-
   if(
     type === "uploaded" &&
     custom
@@ -2909,10 +2587,6 @@ function restoreBackground(){
 
   }
 
-
-  /*
-    BUILT-IN THEME
-  */
 
   if(type === "theme"){
 
@@ -2947,10 +2621,6 @@ function restoreBackground(){
   }
 
 
-  /*
-    DEFAULT
-  */
-
   setBodyBackground(
     DEFAULT_BG
   );
@@ -2968,10 +2638,6 @@ function restoreBackground(){
 
 /* ==========================================================
    UI OPACITY
-
-   Only the card glass changes opacity.
-
-   The warning itself remains fully visible.
 ========================================================== */
 
 function applyOpacity(value){
@@ -2987,10 +2653,7 @@ function applyOpacity(value){
       numericValue
     )
   ){
-
-    numericValue =
-      65;
-
+    numericValue = 65;
   }
 
 
@@ -3048,8 +2711,18 @@ function applyOpacity(value){
     numericValue + "%";
 
 
-  opacityWarning.hidden =
-    numericValue >= 50;
+  /*
+    IMPORTANT:
+    We do not use hidden here.
+
+    The warning's space remains reserved so changing opacity
+    cannot push the slider or Done button around.
+  */
+
+  opacityWarning.classList.toggle(
+    "warning-visible",
+    numericValue < 50
+  );
 
 
   localStorage.setItem(
@@ -3117,7 +2790,6 @@ opacityValue.addEventListener(
       () => {
 
         opacityInput.focus();
-
 
         opacityInput.select();
 
@@ -3225,9 +2897,7 @@ settingsPanel.addEventListener(
   event => {
 
     if(event.target === settingsPanel){
-
       closeSettings();
-
     }
 
   }
@@ -3239,9 +2909,7 @@ whatsNewPanel.addEventListener(
   event => {
 
     if(event.target === whatsNewPanel){
-
       closeWhatsNew();
-
     }
 
   }
@@ -3253,9 +2921,7 @@ requirementsPanel.addEventListener(
   event => {
 
     if(event.target === requirementsPanel){
-
       closeRequirements();
-
     }
 
   }
@@ -3267,9 +2933,7 @@ urlPopup.addEventListener(
   event => {
 
     if(event.target === urlPopup){
-
       closeURL();
-
     }
 
   }
@@ -3281,9 +2945,7 @@ opacityPopup.addEventListener(
   event => {
 
     if(event.target === opacityPopup){
-
       closeOpacityPopup();
-
     }
 
   }
@@ -3296,9 +2958,7 @@ opacityPopup.addEventListener(
 
 renderChangelog();
 
-
 restoreBackground();
-
 
 syncBackgroundButtons();
 
